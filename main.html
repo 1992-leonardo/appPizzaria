@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pizzaria App</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bem-vindo à Pizzaria Delícia</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Cardápio</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="home">
+    <h2>Pizza Especial do Dia</h2>
+    <p>Experimente a nossa pizza do dia: margherita com queijo fresco, manjericão e tomate.</p>
+    <button onclick="addToCart('Margherita', 15.99)">Adicionar ao Carrinho</button>
+  </section>
+  
+  <section id="menu">
+    <h2>Cardápio</h2>
+    <ul>
+      <li>
+        <h3>Margherita</h3>
+        <p>Molho de tomate, queijo mussarela, manjericão e tomate</p>
+        <p class="price">$15.99</p>
+        <button onclick="addToCart('Margherita', 15.99)">Adicionar ao Carrinho</button>
+      </li>
+      <li>
+        <h3>Pepperoni</h3>
+        <p>Molho de tomate, queijo mussarela e pepperoni</p>
+        <p class="price">$12.99</p>
+        <button onclick="addToCart('Pepperoni', 12.99)">Adicionar ao Carrinho</button>
+      </li>
+      <!-- Adicione mais itens do cardápio aqui -->
+    </ul>
+  </section>
+  
+  <section id="contact">
+    <h2>Contato</h2>
+    <p>Entre em contato conosco para fazer um pedido:</p>
+    <p>Telefone: 123-456-7890</p>
+    <p>Celular: <a href="https://wa.me/5511964801185"> Enviar mensagem.</a></p>
+    <p>Email: info@pizzariadelicia.com</p>
+    <button onclick="makeCall('9876543210')">Ligar Agora</button>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Pizzaria Delícia. Todos os direitos reservados.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rastreamento de Motoboy</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rastreamento de Motoboy</h1>
+  <div id="map"></div>
+
+  <script>
+    // Função para iniciar o rastreamento de localização
+    function iniciarRastreamento() {
+      // Obter a referência ao elemento do mapa
+      const mapElement = document.getElementById('map');
+
+      // Configurar o mapa
+      const map = new google.maps.Map(mapElement, {
+        zoom: 15,
+        center: { lat: -23.5505, lng: -46.6333 } // Coordenadas de São Paulo, Brasil
+      });
+
+      // Iniciar o rastreamento de localização
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+
+            // Atualizar a posição do marcador no mapa
+            const marker = new google.maps.Marker({
+              position: { lat: latitude, lng: longitude },
+              map: map
+            });
+
+            // Centralizar o mapa na nova posição
+            map.setCenter({ lat: latitude, lng: longitude });
+          },
+          (error) => {
+            console.error('Erro ao obter a localização:', error);
+          }
+        );
+      } else {
+        console.error('Geolocalização não suportada pelo navegador.');
+      }
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=iniciarRastreamento" async defer></script>
+</body>
+</html>
